@@ -3,7 +3,7 @@ const form = document.querySelector('form');
 form.addEventListener('submit', event => {
   event.preventDefault();
   for (let position = 0; position < Number(form.amount.value); position += 1) {
-    delay = Number(form.delay.value) + Number(form.step.value) * position;
+    const delay = Number(form.delay.value) + Number(form.step.value) * position;
     createPromise(position, delay)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(
